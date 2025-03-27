@@ -27,13 +27,27 @@ export default function WelcomeScreen() {
     <div
       className="amnesty-container"
       style={{
-        backgroundImage:
-          "url('https://amnesty.no/sites/default/files/styles/hero_xlarge/public/2023-06/Fighting%20bad%20guys%20_5.jpg?h=8f02ae08&itok=gCDdYarX')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
+        position: "relative",
       }}
     >
+      {/* Background image with darker overlay and blur */}
+      <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          backgroundImage:
+            "url('https://amnesty.no/sites/default/files/styles/hero_xlarge/public/2023-06/Fighting%20bad%20guys%20_5.jpg?h=8f02ae08&itok=gCDdYarX')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          filter: "blur(3px) brightness(0.6)",
+          zIndex: -1,
+        }}
+      ></div>
+
       <Header />
 
       <main className="amnesty-content home-page-content">
@@ -49,8 +63,8 @@ export default function WelcomeScreen() {
               marginTop: 0,
               paddingTop: 0,
               color: "white",
-
               width: "75%",
+              textShadow: "2px 2px 4px rgba(0, 0, 0, 0.6)",
             }}
           >
             HVORFOR SKAL JEG BRY MEG?
@@ -60,11 +74,13 @@ export default function WelcomeScreen() {
             className="welcome-description"
             style={{
               color: "white",
-              backgroundColor: "rgba(0, 0, 0, 0.7)",
-              padding: "8px 16px",
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              padding: "12px 18px",
               borderRadius: "4px",
-              fontSize: "0.9rem",
-              marginBottom: "1rem",
+              fontSize: "1rem",
+              marginBottom: "1.5rem",
+              backdropFilter: "blur(5px)",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
             }}
           >
             Menneskerettigheter angår oss alle, men vi engasjerer oss av
@@ -77,10 +93,12 @@ export default function WelcomeScreen() {
             className="welcome-description"
             style={{
               color: "white",
-              backgroundColor: "rgba(0, 0, 0, 0.7)",
-              padding: "8px 16px",
+              backgroundColor: "rgba(0, 0, 0, 0.5)",
+              padding: "12px 18px",
               borderRadius: "4px",
-              fontSize: "0.9rem",
+              fontSize: "1rem",
+              backdropFilter: "blur(5px)",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
             }}
           >
             Sveip til høyre hvis du er enig, eller til venstre hvis du er uenig
@@ -94,12 +112,17 @@ export default function WelcomeScreen() {
               display: "flex",
               justifyContent: "center",
               width: "100%",
-              marginTop: "2rem",
+              marginTop: "2.5rem",
             }}
           >
             <button
               className={`start-button ${isAnimating ? "animate-pulse" : ""}`}
               onClick={handleStart}
+              style={{
+                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.3)",
+                fontSize: "1.3rem",
+                padding: "1.2rem 2.5rem",
+              }}
             >
               Start opplevelsen
             </button>
