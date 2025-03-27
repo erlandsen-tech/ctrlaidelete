@@ -367,7 +367,7 @@ export default function QuestionScreen() {
                   textTransform: "uppercase",
                   textAlign: "left",
                   letterSpacing: "0.025em",
-                  fontSize: "1.8rem",
+                  fontSize: "1.6rem",
                   color: "black",
                   padding: "8px 16px",
                   borderRadius: "4px",
