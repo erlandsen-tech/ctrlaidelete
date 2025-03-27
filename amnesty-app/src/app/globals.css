@@ -45,13 +45,31 @@ body {
 
 .amnesty-content {
   flex: 1;
-  padding: 1rem;
+  padding: 0 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
   box-sizing: border-box;
+  position: relative;
+}
+
+/* Background overlay for better text readability - only on welcome page */
+.home-page-content::before {
+  content: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* Removing the general overlay */
+.amnesty-content::before {
+  content: none;
 }
 
 .amnesty-footer {
@@ -63,10 +81,12 @@ body {
 
 /* Welcome screen */
 .welcome-screen {
-  text-align: center;
+  text-align: left;
   max-width: 600px;
   margin: 0 auto;
   padding: 2rem 1rem;
+  position: relative;
+  z-index: 2;
 }
 
 .welcome-title {
@@ -76,7 +96,7 @@ body {
 }
 
 .welcome-description {
-  font-size: 1.2rem;
+  font-size: 0.9rem;
   margin-bottom: 2rem;
   line-height: 1.6;
 }
@@ -91,6 +111,7 @@ body {
   font-size: 1.2rem;
   cursor: pointer;
   transition: transform 0.2s;
+  display: inline-block;
 }
 
 .start-button:hover {
@@ -334,13 +355,13 @@ body {
 }
 
 .dimension-bar-positive {
-  background-color: #4d94ff;
+  background-color: var(--amnesty-yellow);
   right: 50%;
   left: 50%;
 }
 
 .dimension-bar-negative {
-  background-color: #ff4d4d;
+  background-color: var(--amnesty-black);
   right: 50%;
   left: auto;
 }
